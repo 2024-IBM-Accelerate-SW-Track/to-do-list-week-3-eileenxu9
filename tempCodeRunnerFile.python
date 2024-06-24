@@ -1,0 +1,23 @@
+'''
+def count_characters(input_string):
+     from string import ascii_letters
+     my_dict = {}
+     input_string = input_string.lower()
+     for char in input_string:
+         if char in ascii_letters:
+             if char in my_dict:
+                my_dict[char] += 1
+             else:
+                my_dict[char] = 1
+     return my_dict
+'''
+import string
+from collections import Counter
+def count_characters(input_string):
+      alpha_set = set(string.ascii_letters)
+      return {k:v for k,v in dict(Counter(filter(lambda x: x in alpha_set, 
+                     input_string.lower()))).items()}
+
+st = "Hello, World! How are you?"
+print(count_characters(st))
+
